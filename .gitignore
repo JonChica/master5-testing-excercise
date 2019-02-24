@@ -8,3 +8,4 @@ typings/
 */src/**/*.js.map
 */coverage/
 package-lock.json
+yarn.lock

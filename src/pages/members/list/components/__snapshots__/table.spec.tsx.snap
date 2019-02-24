@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/members/list/components/table specs should render as expected when passing required properties 1`] = `
+<table
+  className="table table-striped"
+>
+  <Component />
+  <Component
+    members={
+      Array [
+        Object {
+          "avatarUrl": "test avatarUrl 1",
+          "id": 1,
+          "name": "test name 1",
+        },
+        Object {
+          "avatarUrl": "test avatarUrl 2",
+          "id": 2,
+          "name": "test name 2",
+        },
+      ]
+    }
+  />
+</table>
+`;
