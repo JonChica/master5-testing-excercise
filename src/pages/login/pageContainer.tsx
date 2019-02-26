@@ -4,17 +4,18 @@ import { updateLoginEntityField } from './actions/updateLoginEntityField';
 import { loginRequest } from './actions/loginRequest';
 import { LoginEntity } from './viewModel';
 import { LoginPage } from './page';
+import { getLoginEntity, getLoginFormErrors } from './selectors';
 
 const mapStateToProps = (state: State) => ({
-  loginEntity: state.login.loginEntity,
-  loginFormErrors: state.login.loginFormErrors,
+  loginEntity: getLoginEntity(state),
+  loginFormErrors: getLoginFormErrors(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateField: (loginEntity: LoginEntity) => (fieldName: string, value: any) => dispatch(
-    updateLoginEntityField(loginEntity, fieldName, value)
-  ),
-  doLogin: (loginEntity: LoginEntity) => () => dispatch(loginRequest(loginEntity)),
+  updateField: (loginEntity: LoginEntity) => (fieldName: string, value: any) =>
+    dispatch(updateLoginEntityField(loginEntity, fieldName, value)),
+  doLogin: (loginEntity: LoginEntity) => () =>
+    dispatch(loginRequest(loginEntity)),
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
