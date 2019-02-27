@@ -6,19 +6,26 @@
     "<rootDir>/config/test/setupTest.js"
   ],
   "restoreMocks": true,
-  "snapshotSerializers": [
-    "enzyme-to-json/serializer"
-  ],
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
   "moduleNameMapper": {
     "^.+\\.s?css$": "identity-obj-proxy"
   },
   "collectCoverage": true,
-  "coverageReporters": [
-    "text",
-    "html"
-  ],
+  "coverageReporters": ["text", "html"],
   "coveragePathIgnorePatterns": [
     "/node_modules/",
-    "config/test"
-  ]
+    "config/test",
+    "/src/rest-api/"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 90,
+      "functions": 90,
+      "lines": 90,
+      "statements": 90
+    },
+    "src/**/reducers/*.ts": {
+      "branches": 100
+    }
+  }
 }
