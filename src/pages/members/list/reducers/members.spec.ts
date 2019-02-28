@@ -70,4 +70,37 @@ describe('pages/members/list/reducers/memberReducer spec', () => {
     // Assert
     expect(nextState).toEqual(action.payload);
   });
+
+  it('should failed intentionally to test TravisCI', () => {
+    // Arrange
+    const state: MembersState = [
+      {
+        id: 1,
+        login: 'test login 1',
+        avatar_url: 'test avatar_url 1',
+      },
+    ];
+    const action = {
+      type: actionIds.UPDATE_MEMBERS,
+      payload: [
+        {
+          id: 1,
+          login: 'new login 1',
+          avatar_url: 'new avatar_url 1',
+        },
+        {
+          id: 2,
+          login: 'new login 2',
+          avatar_url: 'new avatar_url 2',
+        },
+      ],
+    };
+    deepFreeze(state);
+
+    // Act
+    const nextState = membersReducer(state, action);
+
+    // Assert
+    expect(nextState).toEqual(action);
+  });
 });
